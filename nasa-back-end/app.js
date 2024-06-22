@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
-const { planetRoute } = require('./routes/index.js');
+const { planetRoute, launchRoute } = require('./routes/index.js');
 
 const app = express();
 
@@ -10,14 +10,16 @@ app.use(
         origin: 'http://localhost:3000',
     })
 );
+
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'src')));
 
 app.use(planetRoute);
+app.use(launchRoute);
 
-// app.route('/').get((req, res) => {
-//     res.sendFile(path.join(__dirname, 'src', 'index.html'));
-// });
+app.route('/*').get((req, res) => {
+    res.sendFile(path.join(__dirname, 'src', 'index.html'));
+});
 
 app.use('*', (req, res) => {
     res.status(404).json({
