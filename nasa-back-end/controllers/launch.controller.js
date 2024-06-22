@@ -38,7 +38,25 @@ const setLauchData = (req, res) => {
     return res.status(201).json(launch);
 };
 
+const removeLaunchData = (req, res) => {
+    const id = req.params.id;
+
+    const launchData = launches.get(Number(id));
+
+    if(!launchData){
+        return res.status(404).json({
+            error: 'Launch data not found',
+        });
+    }
+    
+    launchData.upcoming = false;
+    launchData.success = false;
+
+    return res.status(200).json(launchData);
+};
+
 module.exports = {
     getAllLaunchData,
     setLauchData,
+    removeLaunchData,
 };
