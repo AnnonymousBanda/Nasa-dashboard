@@ -12,10 +12,11 @@ app.use(
 );
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'src')));
 
-app.use(planetRoute);
-app.use(launchRoute);
+app.use('/planets', planetRoute);
+app.use('/launches', launchRoute);
 
 app.route('/*').get((req, res) => {
     res.sendFile(path.join(__dirname, 'src', 'index.html'));

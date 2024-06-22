@@ -1,8 +1,8 @@
 const express = require('express');
-const { getAllLaunchData } = require('./../controllers/launch.controller.js');
+const { getAllLaunchData, setLauchData } = require('./../controllers/launch.controller.js');
 
 const route = express.Router();
 
-route.route('/launches').get(getAllLaunchData);
+route.route('/').get(getAllLaunchData).post(setLauchData);
 
 module.exports = route;
