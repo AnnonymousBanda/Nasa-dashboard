@@ -11,3 +11,29 @@ The NASA Dashboard is a web application that tracks NASA's upcoming, successful,
 1. Backend: Node.js, Express
 2. Frontend: React.js
 4. UI Design: Arwes
+
+## Installation
+### Prerequisites
+Make sure you have the following installed:
+
+1. Node.js (version 14.x or higher)
+2. npm (version 6.x or higher)
+   
+### Steps
+Clone the repository:
+```bash
+git clone https://github.com/AnnonymousBanda/Nasa-dashboard/
+```
+Install dependencies:
+```bash
+npm run install
+```
+Running the Application
+1. both frontend and backend simultaneously
+   ```bash
+   npm start
+   ```
+2. build fronted and start the backend server
+   ```bash
+   npm run deploy
+   ```
